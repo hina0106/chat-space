@@ -1,15 +1,24 @@
-%div.chat
-  %div.header
-    %div.header__top
-    %div.header__bottom
-  %div.messages
-    %div.message
-      %div.message__top
-        %p.message__top__talker
-        %p.message__top__date
-      %div.message__contents
-        %p.message__contents__sentence
-        %img.message__contents__img(src="" alt="")/
-  %div.post
-    %input.post__message(type="text")/
-    %button.post__send(type="submit")
+.chat
+  .header
+    .left-header
+      .left-header__title
+        = @group.name
+      %ul.left-header__members
+        Member：
+        - @group.users.each do |user|
+          %li.member
+            = user.name
+    .right-header
+      = link_to edit_group_path(@group[:id]) do
+        Edit
+  .messages
+    -# 省略の書き方（= render partial: 'message', collection: @messages）
+    = render @messages
+  .form
+    = form_for [@group, @message] do |f|
+      = f.text_field :body, class: 'form__message', placeholder: 'type a message'
+      .form__mask
+        = f.label :image, class: 'form__mask__image' do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'form__submit'
