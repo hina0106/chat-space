@@ -87,11 +87,11 @@ $(function(){
       $('.messages').append(html);
       $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
       $('form')[0].reset(); // フォームを空にする
-      $('.form__submit').prop('disabled', false);
+      $('.input-box__submit').prop('disabled', false);
     })
     .fail(function() {
       alert("メッセージ送信に失敗しました");
-      $('.form__submit').prop('disabled', false);
+      $('.input-box__submit').prop('disabled', false);
     });
   });
 

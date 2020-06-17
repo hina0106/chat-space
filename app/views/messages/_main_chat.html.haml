@@ -14,11 +14,12 @@
   .messages
     -# 省略の書き方（= render partial: 'message', collection: @messages）
     = render @messages
-  .form
+  .input-box
     = form_for [@group, @message] do |f|
-      = f.text_field :body, class: 'form__message', placeholder: 'type a message'
-      .form__mask
-        = f.label :image, class: 'form__mask__image' do
-          = icon('fas', 'image', class: 'icon')
-          = f.file_field :image, class: 'hidden'
-      = f.submit 'Send', class: 'form__submit'
+      .form
+        = f.text_field :body, class: 'form__message', placeholder: 'type a message'
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            = icon('fas', 'image', class: 'icon')
+            = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'input-box__submit'

@@ -4,6 +4,7 @@
     box-sizing: border-box;
     height: 100px;
     padding: 0 40px;
+    border-bottom: solid 1px #eeeeee;
     .left-header {
       float: left;
       &__title {
@@ -64,28 +65,42 @@
     }
   }
 
-  .form {
+  .input-box {
     background-color: #DDDDDD;
     box-sizing: border-box;
     height: 90px;
+    width: 100%;
     padding: 20px 50px 20px 40px;
-    &__message {
-      border: none;
-      float: left;
-      height: 50px;
-      width: calc(100% - 150px);
+    form{
+      display: flex;
+      justify-content: space-between;
     }
-    &__mask {
-      background-color: $white;
-      float: left;
-      height: 50px;
-      padding-right: 10px;
-      &__image {
-        font-size: 20px;
-        line-height: 50px;
+    .form {
+      position: relative;
+      width: calc(100% - 100px);
+      &__message {
+        border-style: none;
+        height: 50px;
+        width: 100%;
+        padding: 0px 40px 0 10px;
+        box-sizing: border-box;
       }
-      .hidden {
-        display: none;
+      &__mask {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        height: 0;
+        background-color: $white;
+        &__image {
+          height: 50px;
+          padding-right: 10px;
+          font-size: 20px;
+          line-height: 50px;
+          cursor: pointer;
+        }
+        .hidden {
+          display: none;
+        }
       }
     }
     &__submit {
@@ -97,6 +112,7 @@
       height: 50px;
       margin-left: 15px;
       padding: 0 30px;
+      cursor: pointer;
     }
   }
 }
